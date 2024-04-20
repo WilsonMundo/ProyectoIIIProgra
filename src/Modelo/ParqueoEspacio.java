@@ -13,11 +13,12 @@ import javax.swing.border.LineBorder;
 
 /**
  *
- * 
+ *
  */
 public class ParqueoEspacio {
-    private String placa; 
-    private boolean ocupado; 
+
+    private String placa;
+    private boolean ocupado;
     private JPanel panel;
 
     public ParqueoEspacio(String nombre, JPanel panel) {
@@ -32,41 +33,48 @@ public class ParqueoEspacio {
 
     public void setNombre(String nombre) {
         this.placa = nombre;
-        JLabel labelDes = new JLabel("Placa");
-        JLabel label = new JLabel(nombre);
-        label = retornaConfigurado(label,false);
-        labelDes = retornaConfigurado(labelDes,true);
-         panel.add(labelDes);
-         panel.add(label);
+        if (this.placa != null && this.placa != "") {
+            JLabel labelDes = new JLabel("Placa");
+            JLabel label = new JLabel(nombre);
+            label = retornaConfigurado(label, false);
+            labelDes = retornaConfigurado(labelDes, true);
+            panel.add(labelDes);
+            panel.add(label);
+        }
+        
     }
-    public JLabel retornaConfigurado(JLabel label,boolean negrita)
-    {
-        label.setHorizontalAlignment(JLabel.CENTER); 
+
+    public JLabel retornaConfigurado(JLabel label, boolean negrita) {
+        label.setHorizontalAlignment(JLabel.CENTER);
         label.setVerticalAlignment(JLabel.CENTER);
-        label.setForeground(Color.WHITE);     
-        if(negrita)
-            label.setFont(new Font(label.getFont().getName(), Font.BOLD, 12));  
-        else
-            label.setFont(new Font(label.getFont().getName(), Font.PLAIN, 12));  
+        label.setForeground(Color.WHITE);
+        if (negrita) {
+            label.setFont(new Font(label.getFont().getName(), Font.BOLD, 12));
+        } else {
+            label.setFont(new Font(label.getFont().getName(), Font.PLAIN, 12));
+        }
         return label;
     }
+
     public boolean isOcupado() {
         return ocupado;
     }
 
     public void setOcupado(boolean ocupado) {
-          this.ocupado = ocupado;
+        this.ocupado = ocupado;
 
-        
         if (ocupado) {
             panel.setBackground(Color.red);
             Color negro = new Color(65, 23, 14);
             panel.setBorder(new LineBorder(negro, 2));
         } else {
-            panel.setBackground(null); 
+            panel.removeAll();
+            panel.setBackground(null);
+            Color verdeIntenso = new Color(0, 128, 0);
+            panel.setBorder(new LineBorder(verdeIntenso, 2));
         }
 
-        panel.repaint(); 
+        panel.repaint();
     }
 
     public JPanel getPanel() {
@@ -76,7 +84,5 @@ public class ParqueoEspacio {
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
-    
-    
-    
+
 }

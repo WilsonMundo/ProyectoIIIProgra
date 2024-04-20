@@ -250,6 +250,7 @@ public class VistaParqueo extends javax.swing.JInternalFrame {
         desktopPanel.add(registrarVehiculo);
         registrarVehiculo.setVisible(true);
     }
+
     private void obtenerNodoVehiculo(JDesktopPane desktopPanel, INodoVehiculoCallback callback) {
         final EliminarVehiculo eliminarVehiculo = new EliminarVehiculo();
 
@@ -268,13 +269,28 @@ public class VistaParqueo extends javax.swing.JInternalFrame {
 
     private void CambiarestadoParqueo(String placa) {
         for (ParqueoEspacio item : parqueos) {
-            if (!(item.isOcupado()))
-            {
+            if (!(item.isOcupado())) {
                 item.setNombre(placa);
                 item.setOcupado(true);
                 break;
             }
-                  
+
+        }
+    }
+
+    private void ParqueoVacio(String placa) {
+        for (ParqueoEspacio item : parqueos) {
+            if (item.getNombre() == placa) {
+                                               
+                item.setNombre(""); 
+                item.setOcupado(false);
+
+            
+                item.getPanel().repaint();
+                item.getPanel().revalidate();
+                break;
+            }
+
         }
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -303,12 +319,12 @@ public class VistaParqueo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         JDesktopPane desktopPanel = getDesktopPane();
+        JDesktopPane desktopPanel = getDesktopPane();
 
         obtenerNodoVehiculo(desktopPanel, new INodoVehiculoCallback() {
             @Override
             public void onNodoVehiculoObtenido(NodoVehiculo nodoVehiculo) {
-                if (nodoVehiculo != null) {                   
+                if (nodoVehiculo != null) {
                 }
             }
         });
@@ -320,7 +336,11 @@ public class VistaParqueo extends javax.swing.JInternalFrame {
         obtenerNodoVehiculo(desktopPanel, new INodoVehiculoCallback() {
             @Override
             public void onNodoVehiculoObtenido(NodoVehiculo nodoVehiculo) {
-                if (nodoVehiculo != null) {                   
+                if (nodoVehiculo != null) {
+                    String placaold = nodoVehiculo.getVehiculo().getPlaca();
+                    if (ParqueosServicio.Servicioparqueo.parqueoModelo.eliminarPorPlaca(nodoVehiculo)) {
+                        ParqueoVacio(placaold);
+                    }
                 }
             }
         });
