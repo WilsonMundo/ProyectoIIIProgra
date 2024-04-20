@@ -4,10 +4,14 @@
  */
 package Servicio;
 
+import Modelo.ParqueoModelo;
+
 /**
  *
- * @author WilsonMundo
+ * 
  */
-public class NodoServicio {
-    
+public class ParqueosServicio {
+   public static class Servicioparqueo{
+       public static ParqueoModelo parqueoModelo = new ParqueoModelo();
+   } 
 }
