@@ -156,20 +156,18 @@ public class ParqueosServicio {
 
 - Inicio: contamos con un pantalla de inico y su menu respectivo.
 
-![inicio](image-1.png)
+<img src="https://onedrive.live.com/embed?resid=D219255F2ABEB74E%21296843&authkey=%21ANP6ujhHrQesA0g&width=1366&height=619" width="800" height="477" />
 
 - Vista parqueo: aca ingresamos la cantidad de parqueos y no lo muestra.
-
-![muestra](image-5.png)
+<img src="https://onedrive.live.com/embed?resid=D219255F2ABEB74E%21296848&authkey=%21AGuB7jQIAQUHiZs&width=1095&height=624" width="800" height="477" />
 
 _si damos click a cualquiera de estas dos opciones nos dirige ala siguiente ventana_
-
-![busqueda-eliminacion](image-9.png)
-
-![ventananueva](image-8.png)
+<img src="https://onedrive.live.com/embed?resid=D219255F2ABEB74E%21296852&authkey=%21AKRlKtoQTSRIbyo&width=168&height=85" width="800" height="477" />
+<img src="https://onedrive.live.com/embed?resid=D219255F2ABEB74E%21296851&authkey=%21AFRhk6OtIQyDcDk&width=1162&height=603" width="800" height="477" />
 
 - Registrar vehiculo: luego de elegir la cantidad de parqueos y que los muestre podemos dar click en registrar vehiculos y nos muestra la siguiente ventana.
+<img src="https://onedrive.live.com/embed?resid=D219255F2ABEB74E%21296849&authkey=%21ADYf3v6rZs6-bvc&width=1069&height=625" width="800" height="477" />
 
-![registro](image-6.png)
+
 
 \*Esta seria toda la implementacion sobre la Matriz Ortogonal.
